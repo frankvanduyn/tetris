@@ -1,0 +1,96 @@
+html { 
+    background: url("../img/Moscow.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+main {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-left: 60px;
+    margin-top: 30px;
+}
+
+.game {
+    display: flex;
+}
+
+.grid {
+    width: 320px;
+    height: 640px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(219, 219, 219);
+    padding: 10px;
+    border: 5px solid #1C6EA4;
+    border-radius: 15px;
+}
+
+.grid div {
+    width: 30px;
+    height: 30px;
+    border: 1px solid white;
+}
+
+div.taken{
+    border: hidden;
+}
+
+.display {
+    margin: 0px;
+    text-align: center;
+    margin-left: 50px;
+}
+
+.mini-grid {
+    width: 66px;
+    height: 88px;
+    display: flex;
+    margin: 0px 20px;
+    flex-wrap: wrap;
+    background-color: rgb(219, 219, 219);
+    padding: 10px;
+    border: 5px solid #1C6EA4;
+    border-radius: 15px;
+}
+
+.mini-grid div {
+    width: 20px;
+    height: 20px;
+    border: 1px solid white;
+}
+
+h3 {
+    background-color: rgb(219, 219, 219);
+    border: 5px solid #1C6EA4;
+    border-radius: 15px;
+}
+
+#start-button {
+	box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	background:linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+	background-color:#3d94f6;
+	border-radius:6px;
+	border:1px solid #337fed;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 11px;
+	text-decoration:none;
+}
+
+#start-button:hover {
+	background:linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+	background-color:#1e62d0;
+}
+
+#start-button:active {
+	position:relative;
+	top:1px;
+}
