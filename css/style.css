@@ -35,7 +35,7 @@ main {
     border: 1px solid white;
 }
 
-div.taken{
+div.taken {
     border: hidden;
 }
 
@@ -63,10 +63,11 @@ div.taken{
     border: 1px solid white;
 }
 
-h3 {
+div.stats {
     background-color: rgb(219, 219, 219);
     border: 5px solid #1C6EA4;
     border-radius: 15px;
+    margin: 20px;
 }
 
 #start-button {
