@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const grid = document.querySelector('.grid')
+  const grid = createGrid();
+  //const grid = document.querySelector('.grid')
   let squares = Array.from(document.querySelectorAll('.grid div'))
   const scoreDisplay = document.querySelector('#score')
   const lineDisplay = document.querySelector('#lines')
@@ -19,6 +20,29 @@ document.addEventListener('DOMContentLoaded', () => {
     '#3f48cc',
     '#22b14c'
   ]
+
+  function createGrid() {
+    // the main grid
+    let grid = document.querySelector(".grid")
+    for (let i = 0; i < 200; i++) {
+      let gridElement = document.createElement("div")
+      grid.appendChild(gridElement)
+    }
+
+    // set base of grid
+    for (let i = 0; i < 10; i++) {
+      let gridElement = document.createElement("div")
+      gridElement.setAttribute("class", "taken")
+      grid.appendChild(gridElement)
+    }
+
+    let previousGrid = document.querySelector(".mini-grid")
+    for (let i = 0; i < 12; i++) {
+      let gridElement = document.createElement("div")
+      previousGrid.appendChild(gridElement);
+    }
+    return grid;
+  }
 
   //The Tetrominoes
   const lTetromino = [
