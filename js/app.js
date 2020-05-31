@@ -2,11 +2,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const grid = document.querySelector('.grid')
   let squares = Array.from(document.querySelectorAll('.grid div'))
   const scoreDisplay = document.querySelector('#score')
+  const lineDisplay = document.querySelector('#lines')
   const startBtn = document.querySelector('#start-button')
   const width = 10
   let nextRandom = 0
   let timerID
   let score = 0
+  let lines = 0
   let game = 0
   const colors = [
     '#ff7f27',
@@ -260,7 +262,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (row.every(index => squares[index].classList.contains('taken'))) {
         score += 10
+        lines += 1
         scoreDisplay.innerHTML = score
+        lineDisplay.innerHTML = lines
         row.forEach(index => {
           squares[index].classList.remove('taken')
           squares[index].classList.remove('tetromino')
