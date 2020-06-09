@@ -4,12 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
   let squares = Array.from(document.querySelectorAll('.grid div'))
   const scoreDisplay = document.querySelector('#score')
   const lineDisplay = document.querySelector('#lines')
+  const levelDisplay = document.querySelector('#level')
   const startBtn = document.querySelector('#start-button')
   const width = 10
   let nextRandom = 0
   let timerID
   let score = 0
   let lines = 0
+  let speed = 1000
+  let level = 1
   let game = 0
   const colors = [
     '#ff7f27',
@@ -150,8 +153,8 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(timerID)
         timerID = null
       }
-      setTimeout(freeze2, 1000);
-      timerID = setInterval(moveDown, 1000)
+      setTimeout(freeze2, speed - 10);
+      setSpeed()
     }
   }
 
@@ -270,7 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
         game = 0
       }
       draw()
-      timerID = setInterval(moveDown, 1000)
+      setSpeed()
       if (game === 0) {
         nextRandom = Math.floor(Math.random() * theTetrominoes.length)
         displayShape()
@@ -300,6 +303,21 @@ document.addEventListener('DOMContentLoaded', () => {
         squares.forEach(cell => grid.appendChild(cell))
       }
     }
+    levelUp()
+  }
+
+  //Level up every 20 lines, the speed will increase with 50 miliseconds (read: interval decreases)
+  function levelUp() {
+    if (Math.floor(lines / 20) != level - 1) {
+      level++
+      levelDisplay.innerHTML = level
+    } 
+  }
+
+  //Set the interval starting from 1000 decreasing 50 for every level
+  function setSpeed() {
+    speed = 1000 - ((level - 1) * 50)
+    timerID = setInterval(moveDown, speed)
   }
 
   //Gameover
