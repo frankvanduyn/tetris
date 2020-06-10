@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let lines = 0
   let speed = 1000
   let level = 1
+  let levelColor = 0
   let game = 0
   const colors = [
     '#ff7f27',
@@ -153,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(timerID)
         timerID = null
       }
-      setTimeout(freeze2, speed - 10);
+      setTimeout(freeze2, speed - 1);
       setSpeed()
     }
   }
@@ -289,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (row.every(index => squares[index].classList.contains('taken'))) {
         score += 10
-        lines += 1
+        lines++
         scoreDisplay.innerHTML = score
         lineDisplay.innerHTML = lines
         row.forEach(index => {
@@ -311,6 +312,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (Math.floor(lines / 20) != level - 1) {
       level++
       levelDisplay.innerHTML = level
+      levelColor++
+      if (levelColor === colors.length) {
+        levelColor = 0
+      }
+      levelColor++
+      document.getElementsByClassName("grid")[0].style.border = "5px solid" + colors[levelColor];
+      document.getElementsByClassName("mini-grid")[0].style.border = "5px solid" + colors[levelColor];
+      document.getElementsByClassName("stats")[0].style.border = "5px solid" + colors[levelColor];
     } 
   }
 
