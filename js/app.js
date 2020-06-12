@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(timerID)
         timerID = null
       }
-      setTimeout(freeze2, speed - 1);
+      setTimeout(freeze2, speed - (speed / 10));
       setSpeed()
     }
   }
