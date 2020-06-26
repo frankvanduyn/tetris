@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const width = 10
   let nextRandom = 0
   let timerID
+  let blockCount = 0
   let score = 0
   let lines = 0
   let speed = 1000
@@ -289,11 +290,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const row = [i, i + 1, i + 2, i + 3, i + 4, i + 5, i + 6, i + 7, i + 8, i + 9]
 
       if (row.every(index => squares[index].classList.contains('taken'))) {
-        score += 10
         lines++
-        scoreDisplay.innerHTML = score
         lineDisplay.innerHTML = lines
         row.forEach(index => {
+          blockCount++
           squares[index].classList.remove('taken')
           squares[index].classList.remove('tetromino')
           squares[index].style.backgroundColor = ''
@@ -304,6 +304,9 @@ document.addEventListener('DOMContentLoaded', () => {
         squares.forEach(cell => grid.appendChild(cell))
       }
     }
+    score += blockCount + (blockCount / 10) * ((blockCount / 10) - 1)
+    blockCount = 0
+    scoreDisplay.innerHTML = score
     levelUp()
   }
 
